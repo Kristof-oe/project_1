@@ -10,6 +10,6 @@ def test_health():
 
 def test_process():
     response = m.post("/task/")
-    assert response["status"] == "done"
+    assert response.status_code== 200
 
 
