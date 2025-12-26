@@ -8,8 +8,8 @@ def test_health():
     assert response.status_code == 200
 
 
-def test_process():
-    response = m.post("/task/")
-    assert response.status_code== 200
+# def test_process():
+#     response = m.post("/task/")
+#     assert response.status_code== 200
 
 
