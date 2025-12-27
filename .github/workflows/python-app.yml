@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,11 +33,14 @@ jobs:
         pwd
         ls -R
 
-  test:
+  Test:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: |
+        pip install pytest
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -101,7 +104,7 @@ jobs:
       run: |
         docker stop track_test
         docker rm track_test
-        
+
   Push_docker:
     runs-on: ubunut-latest
     steps:
