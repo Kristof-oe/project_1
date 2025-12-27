@@ -60,10 +60,14 @@ jobs:
         docker run -d --name track_test -p 8000:8000 track_processing:test
         sleep 5
 
-    - name: Logging container
+    - name: Debug containers
       run: |
-        docker port track_test
-        
+        docker ps -a 
+
+    - name: Debug container
+      run: |
+        docker logs track_test
+
     - name: Docker health check
       run: |
         curl -f http://localhost:8000/health
