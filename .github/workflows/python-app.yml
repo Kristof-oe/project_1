@@ -53,7 +53,7 @@ jobs:
         load: true
         tags: |
           track_processing:test
-          ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
+          kris200036/${{ github.event.repository.name }}:latest
 
     - name: Running Container
       run: |
