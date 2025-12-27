@@ -53,11 +53,12 @@ jobs:
         load: true
         tags: |
           track_processing:test
-          kris200036/${{ github.event.repository.name }}:latest
+          ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
 
     - name: Running Container
       run: |
         docker run -d --name track_test -p 8000:8000 track_processing:test
+        docker  port track_processing:test
         sleep 5
 
     - name: Docker health check
