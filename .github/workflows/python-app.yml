@@ -113,7 +113,7 @@ jobs:
 
     - name: Testing
       run: |
-        kubectl port-forward svc/track_processing 8000:80
+        kubectl port-forward svc/track-processing 8000:80
         sleep 5
         curl -f http://localhost:8000/health
         
