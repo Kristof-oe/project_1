@@ -1,18 +1,18 @@
 # Fastapi project for github actions
 ## Main focus to handle automated build, test and deploy on github actions
-Paragraph 1
-### Build Job
-#### Fastapi with API ways
+### 1. Fastapi with API ways
+Paragraph 2
+### **2. Build Job**
 #### Testing with Unit test
-#### Build docker
+#### Build Docker
 #### Test Docker locally
 #### Build and Push Docker
-Paragraph 2
-### Deploy job
+Paragraph 3
+### **3. Deploy Job**
 #### Setup Kubectl
 #### Setup Helm
-#### Set up cluster
-#### Load dokcer in kind pod
-#### Install helm package
+#### Setup Cluster
+#### Load Dokcer in kind pod
+#### Install Helm package
 #### Testing project
 
