@@ -81,9 +81,9 @@ jobs:
         docker push ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
 
     - name: Setup Kubectl
-      uses: azure/setup-kubctl@v3
+      uses: azure/setup-kubectl@v3
 
-    - name: Setup Helm
+    - name: Setup Helmß
       uses: azure/setup-helm@v4
 
     - name: Create kind cluster
