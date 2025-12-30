@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: {{ .Values.fastapi }}
+  replicas: 2
   type: {{ .Values.service.type }}
   ports:
   - port: {{ .Values.service.port }}
