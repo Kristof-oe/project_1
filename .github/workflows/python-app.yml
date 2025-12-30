@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  CI:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -79,7 +79,10 @@ jobs:
     - name: Push Docker image
       run: |
         docker push ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
-
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
     - name: Setup Kubectl
       uses: azure/setup-kubectl@v3
 
@@ -88,6 +91,8 @@ jobs:
 
     - name: Create kind cluster
       uses: helm/kind-action@v1
+      with:
+          cluster_name: kind
 
     - name: Debug kind
       run: |
