@@ -108,8 +108,8 @@ jobs:
     - name: Install helm package
       run: |
           helm upgrade --install track chart/ \
-           --set image.repository= ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }} \
-           --set image.tag=latest
+          --set image.repository= ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }} \
+          --set image.tag=latest
 
     - name: Testing
       run: |
