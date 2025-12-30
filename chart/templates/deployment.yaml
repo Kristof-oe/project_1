@@ -17,4 +17,3 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: {{ .Values.service.targetport }}
-    restartPolicy: OnFailure
