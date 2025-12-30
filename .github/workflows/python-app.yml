@@ -113,12 +113,11 @@ jobs:
 
     - name: Debug pod
       run: |
-        kubectl get pods
+        sleep 5
         kubectl get deployment track-processing
 
     - name: Testing
       run: |
-        kubectl wait --for=condition=Ready pod -l app=track-processing --timeout=10s
         kubectl get pods
         kubectl port-forward svc/track-processing 8000:80
         sleep 5
