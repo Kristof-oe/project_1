@@ -15,7 +15,6 @@ permissions:
 jobs:
   CI:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
@@ -27,7 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pytest
-        
+
     - name: Debug tree
       run: |
         pwd
@@ -80,4 +79,32 @@ jobs:
     - name: Push Docker image
       run: |
         docker push ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
+
+    - name: Setup Kubectl
+      uses: azure/setup-kubctl@v3
+
+    - name: Setup Helm
+      uses: azure/setup-helm@v4
+
+    - name: Create kind cluster
+      uses: helm/kind-action@v1
+      
+    - name: Docker run
+      run: |
+        docker pull ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
+        kind load docker-image ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
+
+    - name: Install helm package
+      run: |
+          helm upgrade --install track ./chart \
+           --set image.repository= ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }} \
+           --set image.tag=latest
+
+    - name: Testing
+      run: |
+        kubectl port-forward svc/track_processing 8000:80
+        sleep 5
+        curl -f http://localhost:8000/health
+        
+
         
