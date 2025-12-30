@@ -119,7 +119,6 @@ jobs:
 
     - name: Testing
       run: |
-        kubectl wait --for=condition=Ready pod -l app=track-processing --timeout=60s
         kubectl port-forward svc/track-processing 8000:80 & PORT_FORWARD_PID=$!
         sleep 10
         curl -f http://localhost:8000/health
