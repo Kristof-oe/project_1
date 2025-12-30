@@ -115,6 +115,7 @@ jobs:
       run: |
         sleep 5
         kubectl get deployment track-processing
+        kubectl get service track-processing
 
     - name: Testing
       run: |
