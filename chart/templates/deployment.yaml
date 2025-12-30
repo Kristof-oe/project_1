@@ -13,8 +13,8 @@ spec:
         app: {{ .Values.fastapi }}
     spec:
       containers:
-        - name:  {{ .Values.fastapi }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          ports:
-          - containerPort: {{ .Values.service.targetport }}
+      - name:  {{ .Values.fastapi }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.service.targetport }}
     restartPolicy: OnFailure
