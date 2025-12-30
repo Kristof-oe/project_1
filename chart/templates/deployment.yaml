@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  {{ .Value.fastapi }}
+  name:  {{ .Values.fastapi }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Value.fastapi }}
+      app: {{ .Values.fastapi }}
   replicas: 2
   template:
     metadata:
       labels:
-        app: {{ .Value.fastapi }}
+        app: {{ .Values.fastapi }}
     spec:
     containers:
-      - name:  {{ .Value.fastapi }}
-        image: "{{ .Value.image.repository }}: {{ .Value.image.tag}}"
+      - name:  {{ .Values.fastapi }}
+        image: "{{ .Values.image.repository }}: {{ .Values.image.tag}}"
         ports:
-        - containerPort: {{ .Value.service.targetport }}
+        - containerPort: {{ .Values.service.targetport }}
         envFrom:
           name: myconfigmapv1.0
     restartPolicy: OnFailure

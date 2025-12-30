@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Value.fastapi }}
+  name: {{ .Values.fastapi }}
 spec:
   selector:
-    app: {{ .Value.fastapi }}
-  type: {{ .Value.service.type }}
+    app: {{ .Values.fastapi }}
+  type: {{ .Values.service.type }}
   ports:
-  - port: {{ .Value.service.port }}
-    targetPort: {{ .Value.service.targetport }}
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetport }}
