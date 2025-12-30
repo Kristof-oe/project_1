@@ -88,7 +88,12 @@ jobs:
 
     - name: Create kind cluster
       uses: helm/kind-action@v1
-      
+
+    - name: Debug kind
+      run: |
+        kind get clusters
+        kubectl get nodes
+    
     - name: Docker run
       run: |
         docker pull ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
