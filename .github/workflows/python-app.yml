@@ -111,8 +111,13 @@ jobs:
           --set image.repository=${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }} \
           --set image.tag=latest
 
+    - name: Debug pod
+      run: |
+        kubectl get pods
+
     - name: Testing
       run: |
+        kubectl wait --for=condition=Ready pod -l app=track-processing --timeout=60s
         kubectl port-forward svc/track-processing 8000:80
         sleep 5
         curl -f http://localhost:8000/health
