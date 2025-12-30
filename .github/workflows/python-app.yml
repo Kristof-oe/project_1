@@ -80,6 +80,7 @@ jobs:
       run: |
         docker push ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }}:latest
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -106,7 +107,7 @@ jobs:
 
     - name: Install helm package
       run: |
-          helm --install track ./chart \
+          helm upgrade --install track chart/ \
            --set image.repository= ${{ vars.DOCKERHUB_USERNAME}}/${{ github.event.repository.name }} \
            --set image.tag=latest
 
