@@ -9,7 +9,7 @@ This app itself is simple focusing on CI/CD pipeline and infrastructure automati
 - **Helm** - Kubernetes package management
 - **Kubernetes (kind)** – Local Kubernetes cluster for deployment and testing
 
-Github Push --> Github Actions
+*** Github Push --> Github Actions ***
 - **Build**
     -  Run Python unit test (pytest) 
     -  Build Docker image
