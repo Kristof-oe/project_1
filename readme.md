@@ -10,12 +10,12 @@ This app itself is simple focusing on CI/CD pipeline and infrastructure automati
 - **Kubernetes (kind)** – Local Kubernetes cluster for deployment and testing
 
 Github Push --> Github Actions
-    - **Build**
+- **Build**
         Run Python unit test (pytest)
         Build Docker image
         Test Docker image locally (smoke test)
         Push image to Docker Hub
-    - **Deploy**
+- **Deploy**
         Deploy to Kubernetes via Helm
         Test via /health endpoint (smoke test)
 
