@@ -1,7 +1,7 @@
 ## Project overview
 This projects demonstrates end-to-end DevOps workflow built around FastApi backend service. This main goal is automated build, test and deployment process using Github Actions, Docker, Helm and Kubernetes
 
-This app itself is simple focusing on CI/CD pipeline and infrastructure automation
+This app itself is simply focusing on CI/CD pipeline and infrastructure automation
 
 - **FastApi** - Backend REST API
 - **Gihub Actions** - CI/CD orchestration
